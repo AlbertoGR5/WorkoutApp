@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="#fff"
+    android:keepScreenOn="true"
+    tools:context="express.express.exercise.activity.ExerciseActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/action_bar"
+        android:layout_width="400dp"
+        android:layout_height="45dp" />
+
+    <ProgressBar
+        android:id="@+id/seek_progress_count"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:scaleY="3" />
+
+    <TextView
+        android:id="@+id/txt_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seek_progress_count"
+        android:gravity="center"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/complete_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/long_txt"
+        android:layout_below="@id/txt_msg"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/complete"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/long_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/progress_container"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/tip"
+        android:gravity="center"
+        android:lineSpacingExtra="5dp"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/ex_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/progress_container"
+        android:layout_below="@id/seek_progress_count"
+        android:layout_gravity="center" />
+
+    <FrameLayout
+        android:id="@+id/progress_container"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/bottom_btn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:visibility="invisible">
+
+        <ProgressBar
+            android:id="@+id/time_progress"
+            style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/progress_drawable"
+            android:rotationY="180" />
+
+        <TextView
+            android:id="@+id/time_count_txt"
+            style="@style/count_txt_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/countdown" />
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/bottom_btn"
+        style="@style/btn_end_style"
+        android:layout_above="@id/adView"
+        android:onClick="bottom_btn_click"
+        android:text="Start" />
+
+    <LinearLayout
+        android:id="@+id/end_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_btn"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            style="@style/btn_end_style"
+            android:onClick="restart"
+            android:text="Start Again" />
+
+        <Button
+            style="@style/btn_end_style"
+            android:onClick="setReminder"
+            android:text="Set Reminder" />
+    </LinearLayout>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="@string/banner_id" />
+
+</RelativeLayout>

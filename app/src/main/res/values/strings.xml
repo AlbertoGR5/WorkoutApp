@@ -1,0 +1,23 @@
+<resources>
+
+    <!--  App name -->
+    <string name="app_name">Workout App</string>
+
+    <!--  Splash name and sub-title -->
+    <string name="splash_title">Facturonas</string>
+    <string name="splash_subtitle">28AV</string>
+
+    <!--  AdMob ad visibility setting and ids  -->
+    <string name="ads_visibility">no</string>
+    <string name="ads_counter">0</string>
+    <string name="banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+
+
+
+    <!--  App sharing content -->
+    <string name="sharing_text">App Share Text Detail</string>
+
+    <!--  More app developer account name -->
+    <string name="more_apps">ExpressTemplate</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/action_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/action_bar"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/calendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/action_bar"
+                android:clickable="false"
+                app:mcv_selectionColor="@color/colorPrimaryDark" />
+
+            <TableLayout
+                android:id="@+id/calendar_indicators"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calendar"
+                android:layout_margin="10dp">
+
+                <TableRow android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_margin="10dp"
+                        android:src="@drawable/calendar_indicators" />
+
+                    <TextView
+                        style="@style/label_text"
+                        android:layout_margin="0dp"
+                        android:text="Today"
+                        android:textAlignment="inherit" />
+                </TableRow>
+
+                <TableRow android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/calendar_indicators"
+                        android:tint="@android:color/holo_red_dark" />
+
+                    <TextView
+                        style="@style/label_text"
+                        android:layout_margin="0dp"
+                        android:text="Exercise Complete" />
+                </TableRow>
+            </TableLayout>
+
+
+        </RelativeLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            app:adSize="SMART_BANNER"
+            app:adUnitId="@string/banner_id" />
+
+    </LinearLayout>
+</RelativeLayout>
