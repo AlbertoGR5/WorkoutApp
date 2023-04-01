@@ -42,19 +42,19 @@
                             android:id="@+id/rb_metric_unit"
                             style="@style/diff_btn_style"
                             android:checked="true"
-                            android:text="Metric Units" />
+                            android:text="M Unidades" />
 
                         <RadioButton
                             android:id="@+id/rb_us_unit"
                             style="@style/diff_btn_style"
-                            android:text="US Units" />
+                            android:text="US Unidades" />
 
                     </RadioGroup>
 
                     <TextView
                         android:id="@+id/lbl_weight"
                         style="@style/label_text_small"
-                        android:text="WEIGHT(in kg)" />
+                        android:text="PESO(en kg)" />
 
                     <EditText
                         android:id="@+id/bmi_weight"
@@ -63,7 +63,7 @@
                     <TextView
                         android:id="@+id/lbl_height"
                         style="@style/label_text_small"
-                        android:text="HEIGHT(in cm)" />
+                        android:text="ALTURA(en cm)" />
 
                     <TableRow>
 
@@ -101,7 +101,7 @@
                     android:layout_alignParentBottom="true"
                     android:background="@color/colorPrimary"
                     android:gravity="center_vertical|center"
-                    android:text="Calculate"
+                    android:text="Calcular"
                     android:textColor="@color/textColor"
                     android:textSize="18sp" />
 

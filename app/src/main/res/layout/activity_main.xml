@@ -74,13 +74,11 @@
 
                 <ImageView
                     style="@style/main_second_options"
-                    android:onClick="settingOnClick"
                     android:src="@drawable/settings"
                     android:tag="settings" />
 
                 <ImageView
                     style="@style/main_second_options"
-                    android:onClick="myExercise"
                     android:src="@drawable/history" />
             </TableRow>
 
@@ -100,13 +98,11 @@
 
                 <TextView
                     style="@style/main_second_options_txt"
-                    android:onClick="settingOnClick"
                     android:tag="settings"
                     android:text="Configuración" />
 
                 <TextView
                     style="@style/main_second_options_txt"
-                    android:onClick="myExercise"
                     android:text="Historial" />
             </TableRow>
         </TableLayout>
