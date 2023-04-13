@@ -1,6 +1,7 @@
 package express.express.exercise.activity;
 
 import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -19,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import com.workout.exercise.R;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -27,11 +29,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdView;
-import com.workout.exercise.R;
 import express.express.exercise.fragment.fragmentLaunchActivity;
 import express.express.exercise.sqlite.MyDatabase;
-import express.express.exercise.util.adMobManager;
 import express.express.exercise.util.utilhelper;
 import com.google.android.gms.ads.InterstitialAd;
 
@@ -64,9 +63,6 @@ public class ExerciseActivity extends AppCompatActivity {
     Boolean isSound;
     private MyDatabase myDatabase;
 
-    public adMobManager ad = new adMobManager();
-    private AdView adView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,14 +73,6 @@ public class ExerciseActivity extends AppCompatActivity {
         intializeVariables();
         setActionbar("no");
         startThread(restdelay, exercisedelay);
-
-        adView = (AdView) findViewById(R.id.adView);
-        if (getString(R.string.ads_visibility).equals("yes")) {
-            ad.LoadInterstitialAd(ExerciseActivity.this);
-        } else {
-            adView.setVisibility(View.GONE);
-        }
-
     }
 
     private void setActionbar(String title) {
@@ -96,7 +84,6 @@ public class ExerciseActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (end_btns.getVisibility()==View.VISIBLE){
-                    loadShowAdd("Ins");
                 }else {
                     ShowExitDialog();
                 }
@@ -126,24 +113,6 @@ public class ExerciseActivity extends AppCompatActivity {
 
         progress_container.setVisibility(View.VISIBLE);
         rest_exe_name.setVisibility(View.GONE);
-
-        loadShowAdd("Banner");
-
-    }
-
-    private void loadShowAdd(String type) {
-        adMobManager adm = new adMobManager();
-
-        if (type.equals("Banner")) {
-
-            adm.LoadBannerAdd(ExerciseActivity.this, null);
-        } else if (type.equals("Ins")) {
-
-            ad.showInterstitialAd(ExerciseActivity.this);
-        } else {
-            ad.adView.getLayoutParams().height = 0;
-            ad.adView.setVisibility(View.GONE);
-        }
     }
 
     private void intializeVariables() {
@@ -382,7 +351,6 @@ public class ExerciseActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (end_btns.getVisibility()==View.VISIBLE){
-            loadShowAdd("Ins");
         }else {
             ShowExitDialog();
         }
@@ -400,9 +368,6 @@ public class ExerciseActivity extends AppCompatActivity {
                         ct.cancel();
 //                        utilhelper.onBackpress(mInterstitialAd, ExerciseActivity.this,-1);
 
-                        ad.onbackPress(ExerciseActivity.this);
-
-
                         ExerciseActivity.super.onBackPressed();
                     }
                 })
@@ -414,6 +379,7 @@ public class ExerciseActivity extends AppCompatActivity {
                 }).create();
 
         ab.setOnShowListener(new DialogInterface.OnShowListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onShow(DialogInterface dialogInterface) {
                 Button b = ab.getButton(AlertDialog.BUTTON_POSITIVE);

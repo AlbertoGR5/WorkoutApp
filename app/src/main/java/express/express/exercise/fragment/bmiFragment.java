@@ -4,10 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,18 +16,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdView;
 import com.workout.exercise.R;
-
-import express.express.exercise.util.adMobManager;
 import express.express.exercise.util.utilhelper;
-
-import com.google.android.gms.ads.InterstitialAd;
-
 import java.text.NumberFormat;
 import java.util.Locale;
-
 import static android.content.ContentValues.TAG;
 
 public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
@@ -41,10 +31,6 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     RadioButton metric, us;
     Button calculate;
     private Context context;
-    private InterstitialAd mInterstitialAd;
-
-    adMobManager ad = new adMobManager();
-    private AdView adView;
 
     public bmiFragment() {
     }
@@ -53,24 +39,13 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.bmi_calculator, container, false);
-
-
         intializeViews();
-        adView = (AdView) view.findViewById(R.id.adView);
-
-        if (getString(R.string.ads_visibility).equals("yes")) {
-            ad.LoadBannerAdd(getActivity(), view);
-            ad.LoadInterstitialAd(getActivity());
-        } else {
-            adView.setVisibility(View.GONE);
-        }
-
         setActionbar();
         return view;
     }
 
     private void setActionbar() {
-        utilhelper.setActionbar(R.drawable.bmi, "Calculate bmi", view, getActivity(), ad);
+        utilhelper.setActionbar(R.drawable.bmi, "Calculate bmi", view, getActivity());
     }
 
     private void intializeViews() {
@@ -85,10 +60,8 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
         metric = view.findViewById(R.id.rb_metric_unit);
         us = view.findViewById(R.id.rb_us_unit);
         calculate = view.findViewById(R.id.btn_cal);
-
         calculate.setOnClickListener(this);
         rUnits.setOnCheckedChangeListener(this);
-
         context = getContext();
     }
 
@@ -117,7 +90,6 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onClick(View view) {
-
         if (!weight.getText().toString().isEmpty() && !height_cm_feet.getText().toString().isEmpty() && !height_inch.getText().toString().isEmpty()) {
             double w = Double.valueOf(weight.getText().toString());
             double h = Double.valueOf(height_cm_feet.getText().toString());

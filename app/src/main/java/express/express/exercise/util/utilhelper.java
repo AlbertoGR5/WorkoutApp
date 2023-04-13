@@ -9,10 +9,6 @@ import android.widget.TextView;
 
 import com.workout.exercise.R;
 
-/**
- * Created by appsb on 17-07-2018.
- */
-
 public class utilhelper {
 
 
@@ -22,7 +18,7 @@ public class utilhelper {
     public static String EXETIME="ExerciseTime";
     public static String REMINDER="ReminderSetting";
 
-    public static void setActionbar(int img, String title, View view, final Activity activity, final adMobManager adm) {
+    public static void setActionbar(int img, String title, View view, final Activity activity) {
         ImageView actionhideicon, backbtn;
         TextView actiontitle;
 

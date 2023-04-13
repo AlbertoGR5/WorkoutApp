@@ -11,32 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.google.android.gms.ads.AdView;
 import com.workout.exercise.R;
 import express.express.exercise.fragment.fragmentLaunchActivity;
-import express.express.exercise.util.adMobManager;
 
 public class MainActivity extends AppCompatActivity {
     String appPackageName;
     private Context context;
-    private AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         appPackageName = getPackageName();
-
-
-        adView = (AdView) findViewById(R.id.adView);
-
-        if (getString(R.string.ads_visibility).equals("yes")) {
-            adMobManager a = new adMobManager();
-            a.LoadBannerAdd(MainActivity.this, null);
-
-        } else {
-            adView.setVisibility(View.GONE);
-        }
 
         context = this;
     }
@@ -85,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("YES", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                       finishAffinity();
+                        finishAffinity();
                     }
                 }).show();
 

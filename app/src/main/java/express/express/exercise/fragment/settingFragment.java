@@ -23,7 +23,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.workout.exercise.R;
@@ -32,7 +31,6 @@ import express.express.exercise.Const;
 import express.express.exercise.alarm.Models.AlarmDetails;
 import express.express.exercise.alarm.Services.AlertReceiver;
 
-import express.express.exercise.util.adMobManager;
 import express.express.exercise.util.utilhelper;
 
 import java.lang.reflect.Type;
@@ -40,13 +38,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class settingFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
-
     RadioGroup difficultyGrp;
     Switch soundSwitch, reminderSwitch;
     View view;
     LinearLayout reminderContainer;
-    adMobManager ad = new adMobManager();
-    private AdView adView;
     TextView mActionSign;
     SharedPreferences sp;
     SharedPreferences.Editor e;
@@ -57,27 +52,14 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
     private CheckBox Sun, Sat, Mon, Tue, Wed, Thurs, Fri;
     private int[] checked = new int[7];
 
-    public settingFragment() {
-    }
+    public settingFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.settings, container, false);
         initializeView();
-
         loadData();
-
         setViews();
-        adView = (AdView) view.findViewById(R.id.adView);
-        mActionSign = view.findViewById(R.id.action_ok);
-        if (getString(R.string.ads_visibility).equals("yes")) {
-            ad.LoadBannerAdd(getActivity(), view);
-            ad.LoadInterstitialAd(getActivity());
-        } else {
-            adView.setVisibility(View.GONE);
-        }
-
-
         setActionbar();
         return view;
     }
@@ -279,7 +261,7 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
     }
 
     private void setActionbar() {
-        utilhelper.setActionbar(R.drawable.settings, "settings", this.view, getActivity(), ad);
+        utilhelper.setActionbar(R.drawable.settings, "settings", this.view, getActivity());
     }
 
     private void setViews() {
