@@ -8,14 +8,21 @@
     android:orientation="vertical"
     tools:context="express.express.exercise.activity.MainActivity">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/action_bar"
+        android:layout_width="400dp"
+        android:layout_height="45dp" />
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="253dp">
 
         <ImageView
             android:id="@+id/header_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="-45dp"
             android:adjustViewBounds="true"
             android:maxHeight="350dp"
             android:scaleType="centerCrop"
@@ -55,7 +62,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
+            android:padding="5dp"
+            android:background="@color/colorPrimaryDark"
             android:layout_weight="1">
 
             <TableRow android:layout_gravity="bottom">
@@ -74,12 +82,14 @@
 
                 <ImageView
                     style="@style/main_second_options"
-                    android:src="@drawable/settings"
-                    android:tag="settings" />
+                    android:onClick="myExercise"
+                    android:src="@drawable/history" />
 
                 <ImageView
                     style="@style/main_second_options"
-                    android:src="@drawable/history" />
+                    android:onClick="settingOnClick"
+                    android:src="@drawable/settings"
+                    android:tag="settings" />
             </TableRow>
 
             <TableRow>
@@ -98,22 +108,16 @@
 
                 <TextView
                     style="@style/main_second_options_txt"
-                    android:tag="settings"
-                    android:text="Configuración" />
+                    android:onClick="myExercise"
+                    android:text="Historial" />
 
                 <TextView
                     style="@style/main_second_options_txt"
-                    android:text="Historial" />
+                    android:onClick="settingOnClick"
+                    android:tag="settings"
+                    android:text="Configuración" />
             </TableRow>
         </TableLayout>
-
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:visibility="visible"
-            app:adSize="SMART_BANNER"
-            app:adUnitId="@string/banner_id" />
 
     </LinearLayout>
 

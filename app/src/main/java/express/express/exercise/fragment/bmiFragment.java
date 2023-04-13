@@ -45,7 +45,7 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     }
 
     private void setActionbar() {
-        utilhelper.setActionbar(R.drawable.bmi, "Calculate bmi", view, getActivity());
+        utilhelper.setActionbar(R.drawable.bmi, "Calcular", view, getActivity());
     }
 
     private void intializeViews() {
@@ -68,14 +68,16 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         if (radioGroup.getCheckedRadioButtonId() == metric.getId()) {
-            lbl_weight.setText("WEIGHT(in kg)");
-            lbl_height.setText("HEIGHT(in cm)");
+            lbl_weight.setText("PESO(in kg)");
+            lbl_height.setText("ALTURA(in cm)");
+            weight.setHint("");
             height_cm_feet.setHint("");
             height_inch.setVisibility(View.GONE);
             height_inch.setText("0");
         } else if (radioGroup.getCheckedRadioButtonId() == us.getId()) {
-            lbl_weight.setText("WEIGHT(in kg)");
-            lbl_height.setText("HEIGHT(in cm)");
+            lbl_weight.setText("WEIGHT");
+            lbl_height.setText("HEIGHT");
+            weight.setHint("Pounds");
             height_cm_feet.setHint("Feet");
             height_inch.setVisibility(View.VISIBLE);
             height_inch.setText("");
@@ -104,33 +106,33 @@ public class bmiFragment extends Fragment implements RadioGroup.OnCheckedChangeL
             bmi = Double.valueOf(String.format("%.2f", bmi).replace(",", "."));
             String s = String.valueOf(bmi);
             Double.parseDouble(s.replace(',', '.'));
-            bmi_result.setText("Your BMI" + "\n" + s + "\n" + result[0]);
+            bmi_result.setText("Tu IMC" + "\n" + s + "\n" + result[0]);
             bmi_result_detail.setText(result[1]);
         } else {
-            Toast.makeText(context, "Invalid Values", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Valores invalidos", Toast.LENGTH_SHORT).show();
         }
     }
 
     private String[] getBmiState(Double bmi) {
         String res[] = new String[2];
         if (bmi <= 18.5) {
-            res[0] = "Under Weight";
-            res[1] = "Oops! You really need to take care of yours better! Eat more!";
+            res[0] = "Peso bajo";
+            res[1] = "¡Ups! ¡Realmente necesitas cuidar mejor de ti! ¡Come más!";
         } else if (bmi > 18.5 && bmi <= 25.0) {
             res[0] = "Normal";
-            res[1] = "Congratulations! You are in a good shape!";
+            res[1] = "¡Felicidades! ¡Estás en buena forma!";
         } else if (bmi > 25 && bmi <= 30) {
-            res[0] = "Over Weight";
-            res[1] = "Oops! You really need to take care of yourself! Workout maybe!";
+            res[0] = "Peso alto";
+            res[1] = "¡Ups! ¡Realmente necesitas cuidarte! ¡Entrenamiento tal vez!";
         } else if (bmi > 30 && bmi <= 35) {
-            res[0] = "Obese";
-            res[1] = "Oops! You really need to take care of yourself! Workout maybe!";
+            res[0] = "Obeso";
+            res[1] = "¡Ups! ¡Realmente necesitas cuidarte! ¡Entrenamiento tal vez!";
         } else if (bmi > 35 && bmi <= 40) {
-            res[0] = "Severely Obese";
-            res[1] = "OMG! You are in a very dangerous condition! Act now!";
+            res[0] = "Severamente obeso";
+            res[1] = "¡DIOS MÍO! ¡Estás en una condición muy peligrosa! ¡Actuar ahora!";
         } else {
-            res[0] = "Very Severely Obese";
-            res[1] = "OMG! You are in a very dangerous condition! Act now!";
+            res[0] = "Muy severamente obeso";
+            res[1] = "¡DIOS MÍO! ¡Estás en una condición muy peligrosa! ¡Actuar ahora!";
         }
         return res;
     }

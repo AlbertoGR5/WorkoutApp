@@ -323,7 +323,7 @@ public class ExerciseActivity extends AppCompatActivity {
     }
 
     private void exerciseComplete() {
-        setActionbar("EXERCISE COMPLETE");
+        setActionbar("EJERCICIO COMPLETO");
         mainpd.setVisibility(View.INVISIBLE);
         rest_title.setVisibility(View.VISIBLE);
         restimg.setVisibility(View.VISIBLE);
@@ -333,10 +333,10 @@ public class ExerciseActivity extends AppCompatActivity {
         progress_container.setVisibility(View.INVISIBLE);
 
         rest_title.setTextSize(50);
-        rest_title.setText("END");
+        rest_title.setText("Finalizado");
         restimg.setImageResource(R.drawable.complete);
 
-        rest_exe_name.setText("Congratulations! You have done the workout!");
+        rest_exe_name.setText("!Felicidades, completaste la rutina¡");
         bottom_btn.setText("MENU");
 
 //        loadShowAdd("Ins");
@@ -359,8 +359,8 @@ public class ExerciseActivity extends AppCompatActivity {
     private void ShowExitDialog() {
         final AlertDialog ab = new AlertDialog.Builder(context)
                 .setTitle("Stop")
-                .setMessage("Do you want to stop workout ?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setMessage("Quieres cancelar el entrenamiento?")
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         handler.removeCallbacks(r);

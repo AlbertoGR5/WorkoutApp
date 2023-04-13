@@ -10,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.workout.exercise.R;
 import express.express.exercise.fragment.fragmentLaunchActivity;
+import express.express.exercise.util.utilhelper;
 
 public class MainActivity extends AppCompatActivity {
     String appPackageName;
+    ImageView backbtn;
     private Context context;
 
     @Override
@@ -24,7 +27,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         appPackageName = getPackageName();
 
+        intializeViews();
+
         context = this;
+
+        setActionbar("no");
+    }
+    private void setActionbar(String title) {
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+    }
+
+    private void intializeViews() {
+        backbtn = findViewById(R.id.back_btn);
     }
 
     public void startExercise(View view) {
@@ -58,22 +77,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(context)
-                .setTitle("Quit")
-                .setMessage("Do you want to quit this app ?")
-                .setPositiveButton("Rate US", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent rateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName));
-                        if (rateIntent != null)
-                            startActivity(rateIntent);
+                .setTitle("Exit")
+                .setMessage("Quieres salir de la aplicación ?")
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
                     }
                 })
-                .setNegativeButton("YES", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Salir", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         finishAffinity();
                     }
-                }).show();
+                })
+                .show();
+
 
     }
 }

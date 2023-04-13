@@ -54,7 +54,7 @@ public class exerciseListFragment extends Fragment implements exerciseListAdapte
     private void exerciselistFragment(LayoutInflater inflater, ViewGroup container, Activity activity) {
         RecyclerView rv;
         view = inflater.inflate(R.layout.fragment_exercise_list, container, false);
-        setActionbar(R.drawable.exercises, "exercise list", view, activity);
+        setActionbar(R.drawable.exercises, "lista de ejercicios", view, activity);
 
         String[] elist = context.getResources().getStringArray(R.array.exe_names);
         String[] imglist = context.getResources().getStringArray(R.array.images);

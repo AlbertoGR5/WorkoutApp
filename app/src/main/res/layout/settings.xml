@@ -165,27 +165,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_alignParentBottom="true">
+
             <TextView
                 android:id="@+id/action_ok"
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="6dp"
                 android:background="@color/blackBackground"
                 android:gravity="center"
                 android:text="Set"
                 android:textColor="@color/textColor"
                 android:textSize="20sp" />
 
-
-
-            <com.google.android.gms.ads.AdView
-                android:background="@color/textColor"
-                android:id="@+id/adView"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_alignParentBottom="true"
-                app:adSize="SMART_BANNER"
-                app:adUnitId="@string/banner_id" />
 
         </LinearLayout>
 

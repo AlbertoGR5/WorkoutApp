@@ -9,9 +9,6 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Created by appsb on 13-07-2018.
- */
 public class MyDatabase extends SQLiteAssetHelper {
 
 

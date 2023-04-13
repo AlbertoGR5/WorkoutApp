@@ -99,7 +99,8 @@
     <Button
         android:id="@+id/bottom_btn"
         style="@style/btn_end_style"
-        android:layout_above="@id/adView"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-3dp"
         android:onClick="bottom_btn_click"
         android:text="Start" />
 
@@ -115,20 +116,14 @@
         <Button
             style="@style/btn_end_style"
             android:onClick="restart"
-            android:text="Start Again" />
+            android:text="Empezar de nuevo" />
 
         <Button
             style="@style/btn_end_style"
             android:onClick="setReminder"
-            android:text="Set Reminder" />
+            android:text="Establecer recordatorio" />
     </LinearLayout>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        app:adSize="SMART_BANNER"
-        app:adUnitId="@string/banner_id" />
+
 
 </RelativeLayout>

@@ -35,7 +35,7 @@ public class myExerciseFragment extends Fragment {
         context = getContext();
         intializeViews();
 
-        setActionbar(R.drawable.history, "history", view, getActivity());
+        setActionbar(R.drawable.history, "historial", view, getActivity());
         return view;
     }
 

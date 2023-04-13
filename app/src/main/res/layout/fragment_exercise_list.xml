@@ -13,16 +13,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/exe_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/adView"/>
+        android:layout_height="match_parent"/>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        app:adSize="SMART_BANNER"
-        android:layout_alignParentBottom="true"
-        app:adUnitId="@string/banner_id" />
+
     </RelativeLayout>
 
 </LinearLayout>
