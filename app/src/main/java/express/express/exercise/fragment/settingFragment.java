@@ -37,7 +37,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class settingFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
+public class settingFragment extends Fragment {
     RadioGroup difficultyGrp;
     Switch soundSwitch, reminderSwitch;
     View view;
@@ -65,10 +65,6 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
     }
 
     private void initializeView() {
-        difficultyGrp = view.findViewById(R.id.difficulty);
-        soundSwitch = view.findViewById(R.id.sound_switch);
-        reminderSwitch = view.findViewById(R.id.reminder_switch);
-        reminderContainer = view.findViewById(R.id.reminderContainer);
 
         timePicker = view.findViewById(R.id.timePicker);
 
@@ -79,9 +75,6 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
         Wed = view.findViewById(R.id.checkWed);
         Thurs = view.findViewById(R.id.checkThurs);
         Fri = view.findViewById(R.id.checkFri);
-
-        sound_switch = view.findViewById(R.id.sound_switch);
-        reminder_switch = view.findViewById(R.id.reminder_switch);
 
 
 
@@ -261,7 +254,7 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
     }
 
     private void setActionbar() {
-        utilhelper.setActionbar(R.drawable.settings, "settings", this.view, getActivity());
+        utilhelper.setActionbar(R.drawable.settings, "perfil", this.view, getActivity());
     }
 
     private void setViews() {
@@ -324,21 +317,6 @@ public class settingFragment extends Fragment implements RadioGroup.OnCheckedCha
 
 
     //for radioGroup
-    @Override
-    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        int pos, exeTime;
-        if (radioGroup.getCheckedRadioButtonId() == R.id.one) {
-            pos = 0;
-            exeTime = 20;
-        } else if (radioGroup.getCheckedRadioButtonId() == R.id.two) {
-            pos = 1;
-            exeTime = 30;
-        } else {
-            pos = 2;
-            exeTime = 40;
-        }
-        setDifficulty(pos, exeTime);
-    }
 
     @Override
     public void onStop() {

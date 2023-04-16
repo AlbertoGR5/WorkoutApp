@@ -6,14 +6,16 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.workout.exercise.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private TextView tx_title, tx_subTitile;
+    private ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,7 @@ public class SplashActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        tx_title = (TextView) findViewById(R.id.tx_title);
-        tx_subTitile = (TextView) findViewById(R.id.tx_subTitile);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

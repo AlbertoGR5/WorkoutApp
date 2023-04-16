@@ -5,7 +5,7 @@
     <string name="splash_title_app">WorkoutApp</string>
     <string name="splash_title">Facturonas</string>
     <string name="splash_subtitle">28AV</string>
-    <string name="login">Iniciar sesión</string>
+    <string name="login">Workout App Login</string>
 
     <string name="ads_visibility">no</string>
     <string name="ads_counter">0</string>
@@ -13,8 +13,10 @@
     <string name="interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
     <string name="password">Contraseña</string>
     <string name="email">Correo</string>
-    <string name="register">Registrarse</string>
-    <string name="click_to_login">Click para iniciar sesión</string>
-    <string name="click_to_register">Click para registrarse</string>
+    <string name="register">Workout App Registro</string>
+    <string name="link_signin">Iniciar sesión</string>
+    <string name="text_signin">¿Ya tienes cuenta?</string>
+    <string name="text_signup">¿No tienes cuenta?</string>
+    <string name="link_signup">Registrarse</string>
 
 </resources>

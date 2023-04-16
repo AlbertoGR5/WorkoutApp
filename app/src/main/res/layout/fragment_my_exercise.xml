@@ -42,7 +42,7 @@
                     <TextView
                         style="@style/label_text"
                         android:layout_margin="0dp"
-                        android:text="Today"
+                        android:text="Dia actual"
                         android:textAlignment="inherit" />
                 </TableRow>
 
@@ -58,7 +58,7 @@
                     <TextView
                         style="@style/label_text"
                         android:layout_margin="0dp"
-                        android:text="Exercise Complete" />
+                        android:text="EJercicios completados" />
                 </TableRow>
             </TableLayout>
 

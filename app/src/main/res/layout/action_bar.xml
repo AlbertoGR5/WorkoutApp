@@ -35,7 +35,7 @@
             android:adjustViewBounds="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/history"
+            android:src="@drawable/iconb"
             android:layout_marginEnd="10dp"/>
 
 </RelativeLayout>
