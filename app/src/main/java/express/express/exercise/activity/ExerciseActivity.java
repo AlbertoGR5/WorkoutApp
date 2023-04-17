@@ -41,9 +41,6 @@ public class ExerciseActivity extends AppCompatActivity {
 
     LinearLayout end_btns;
     FrameLayout progress_container;
-
-    InterstitialAd mInterstitialAd;
-
     ImageView actionhideicon, backbtn, img, restimg;
     TextView actiontitle, rest_title, rest_exe_name, counter_text;
     Button bottom_btn;
@@ -176,14 +173,14 @@ public class ExerciseActivity extends AppCompatActivity {
                 title = exeList[0];
                 bottom_btn.setVisibility(View.INVISIBLE);
             } else {
-                title = "Rest Time";
+                title = "Descanso";
                 bottom_btn.setVisibility(View.VISIBLE);
-                bottom_btn.setText("SKIP");
+                bottom_btn.setText("Omitir");
             }
             exe = exeList[i];
             imgname = imgList[i];
             setActionbar(title);
-            rest_title.setText("GET READY FOR" + "\n" + exe.toUpperCase());
+            rest_title.setText("PREPARATE PARA" + "\n" + exe.toUpperCase());
             Bitmap bitmap = getBitmap(imgname);
             restimg.setVisibility(View.VISIBLE);
             restimg.setImageBitmap(bitmap);
@@ -215,7 +212,7 @@ public class ExerciseActivity extends AppCompatActivity {
             img.setImageBitmap(bitmap);
 
             bottom_btn.setVisibility(View.VISIBLE);
-            bottom_btn.setText("DONE");
+            bottom_btn.setText("HECHO");
         }
     }
 
@@ -230,7 +227,6 @@ public class ExerciseActivity extends AppCompatActivity {
                 mp.release();
             playMusic(R.raw.start);
         }
-        //final long totalSeconds = 10;
         ct = new CountDownTimer(totalSeconds * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
                 counter_text.setText(String.valueOf((int) ((millisUntilFinished) / 1000)));
@@ -242,16 +238,15 @@ public class ExerciseActivity extends AppCompatActivity {
                     handler.removeCallbacks(r1);
                     exerciseComplete();
                 } else {
-//                  counter_text.setText(String.valueOf(1));
                     pd.setProgress(0);
                     mainpd.setProgress(count++);
                 }
             }
         };
         ct.start();
-        //animation for smooth progress bar
+        //animacion de la barra de progreso
         if (android.os.Build.VERSION.SDK_INT >= 11) {
-            // will update the "progress" propriety of seekbar until it reaches progress
+            // aumenta el progreso de la barra hasta llegar al objetivo
             ObjectAnimator animation = ObjectAnimator.ofInt(pd, "progress", 1000 * totalSeconds, 0);
             animation.setDuration(totalSeconds * 1000); // 0.5 second
             animation.start();
@@ -277,12 +272,12 @@ public class ExerciseActivity extends AppCompatActivity {
 
     public void bottom_btn_click(View view) {
         ct.cancel();
-        if (bottom_btn.getText().equals("DONE")) {
+        if (bottom_btn.getText().equals("HECHO")) {
             mainpd.setProgress(count++);
             handler.removeCallbacks(r);
             handler.removeCallbacks(r1);
             startThread(restTime, exersiceTime);
-        } else if (bottom_btn.getText().equals("SKIP")) {
+        } else if (bottom_btn.getText().equals("OMITIR")) {
             mainpd.setProgress(count++);
             handler.removeCallbacks(r);
             handler.removeCallbacks(r1);
@@ -315,13 +310,6 @@ public class ExerciseActivity extends AppCompatActivity {
         finish();
     }
 
-    public void setReminder(View view) {
-        Intent i = new Intent(context, fragmentLaunchActivity.class);
-        i.putExtra("TAG", "settings");
-        startActivity(i);
-        finish();
-    }
-
     private void exerciseComplete() {
         setActionbar("EJERCICIO COMPLETO");
         mainpd.setVisibility(View.INVISIBLE);
@@ -339,7 +327,6 @@ public class ExerciseActivity extends AppCompatActivity {
         rest_exe_name.setText("!Felicidades, completaste la rutina¡");
         bottom_btn.setText("MENU");
 
-//        loadShowAdd("Ins");
         addDataInToDatabase();
     }
 
@@ -366,7 +353,6 @@ public class ExerciseActivity extends AppCompatActivity {
                         handler.removeCallbacks(r);
                         handler.removeCallbacks(r1);
                         ct.cancel();
-//                        utilhelper.onBackpress(mInterstitialAd, ExerciseActivity.this,-1);
 
                         ExerciseActivity.super.onBackPressed();
                     }

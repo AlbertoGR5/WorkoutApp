@@ -30,27 +30,6 @@
                     android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
-                    <RadioGroup
-                        android:id="@+id/rg_units"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:background="@layout/radio_group_back"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/rb_metric_unit"
-                            style="@style/diff_btn_style"
-                            android:checked="true"
-                            android:text="M Unidades" />
-
-                        <RadioButton
-                            android:id="@+id/rb_us_unit"
-                            style="@style/diff_btn_style"
-                            android:text="US Unidades" />
-
-                    </RadioGroup>
-
                     <TextView
                         android:id="@+id/lbl_weight"
                         style="@style/label_text_small"
@@ -65,31 +44,55 @@
                         style="@style/label_text_small"
                         android:text="ALTURA(en cm)" />
 
-                    <TableRow>
+                    <EditText
+                        android:id="@+id/bmi_height_cm"
+                        style="@style/bmi_edt" />
 
-                        <EditText
-                            android:id="@+id/bmi_height_cm"
-                            style="@style/bmi_edt"
-                            android:layout_weight="1" />
+                    <TextView
+                        android:id="@+id/lbl_age"
+                        style="@style/label_text_small"
+                        android:text="EDAD" />
 
-                        <EditText
-                            android:id="@+id/bmi_height_inch"
-                            style="@style/bmi_edt"
-                            android:layout_weight="1"
-                            android:hint="Inch"
-                            android:text="0"
-                            android:visibility="gone" />
-                    </TableRow>
+                    <EditText
+                        android:id="@+id/bmi_age"
+                        style="@style/bmi_edt"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_units"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@layout/radio_group_back"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_metric_unit"
+                            style="@style/diff_btn_style"
+                            android:checked="true"
+                            android:text="Masculino" />
+
+                        <RadioButton
+                            android:id="@+id/rb_us_unit"
+                            style="@style/diff_btn_style"
+                            android:text="Femenino" />
+
+                    </RadioGroup>
 
                     <TextView
                         android:id="@+id/bmi_result"
                         style="@style/label_text"
-                        android:layout_margin="0dp"
+                        android:layout_marginTop="15dp"
                         android:paddingTop="20dp" />
 
                     <TextView
                         android:id="@+id/result_details"
-                        style="@style/label_text_small"
+                        style="@style/label_text"
+                        android:layout_margin="0dp"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/result_details_exp"
+                        style="@style/label_text"
                         android:layout_margin="0dp"
                         android:textAlignment="center" />
                 </TableLayout>

@@ -117,11 +117,6 @@
             style="@style/btn_end_style"
             android:onClick="restart"
             android:text="Empezar de nuevo" />
-
-        <Button
-            style="@style/btn_end_style"
-            android:onClick="setReminder"
-            android:text="Establecer recordatorio" />
     </LinearLayout>
 
 

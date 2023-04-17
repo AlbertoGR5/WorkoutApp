@@ -43,8 +43,8 @@ public class NotificationHelper extends ContextWrapper {
 
         return new NotificationCompat.Builder(getApplicationContext(), channelID)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentTitle("This is the time for exercise.")
-                .setContentText("7 Min Workout")
+                .setContentTitle("Es tiempo de ejercitarte.")
+                .setContentText("7 Minutos de Ejercicio")
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setSmallIcon(R.drawable.ic_clock)
