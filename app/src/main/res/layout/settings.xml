@@ -7,21 +7,22 @@
     android:background="#dde3e7">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView11111"
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    <include
-        android:id="@+id/include"
-        layout="@layout/action_bar"
-        android:layout_width="411dp"
-        android:layout_height="45dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/action_bar"
+            android:layout_width="411dp"
+            android:layout_height="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -31,13 +32,14 @@
         app:cardCornerRadius="80dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <ImageView
             android:id="@+id/bgProfileImageView"
             android:layout_width="match_parent"
-            android:layout_height="369dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/all"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_profile" />
     </androidx.cardview.widget.CardView>
@@ -46,10 +48,11 @@
         android:id="@+id/view2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@drawable/ic_bg"
         app:layout_constraintBottom_toBottomOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -74,9 +77,11 @@
                 android:id="@+id/signOutImageView"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_gravity="end"
                 android:layout_marginTop="12dp"
                 android:layout_marginEnd="12dp"
-                android:layout_gravity="end"
+                android:contentDescription="@string/all"
+                app:srcCompat="@drawable/ic_sign_out"
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView
@@ -85,8 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:textSize="24sp"
-                android:text="Juan"/>
+                android:text="@string/user_name"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/emailTextView"
@@ -95,8 +101,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="40dp"
                 android:gravity="center"
-                android:textSize="16sp"
-                android:text="Juan@correo.com"/>
+                android:text="@string/user_email"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -115,65 +121,57 @@
             android:id="@+id/profileImageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/juan"/>
+            android:contentDescription="@string/all"
+            app:srcCompat="@drawable/ic_profile" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="20dp"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="24dp"
+                android:autofillHints="@string/name"
+                android:background="@drawable/ic_field"
+                android:drawableStart="@drawable/ic_user"
+                android:drawablePadding="16dp"
+                android:ems="10"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:maxLength="40"
+                android:padding="16dp" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/updateProfileAppCompatButton"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="32dp"
                 android:background="@drawable/ic_buttom"
                 android:paddingLeft="64dp"
                 android:paddingRight="64dp"
-                android:text="Cerrar sesión"
-                android:textColor="@color/textColor"
-                android:layout_gravity="center"/>
+                android:text="@string/update_profile"
+                android:textColor="@color/white" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/updatePasswordTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"/>
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <TextView
-                    android:id="@+id/deleteAccountTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"/>
-            </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#000</color>
     <color name="colorOri">#B2BAB1</color>
-
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="blackBackground">#000</color>
     <color name="textColor">#fff</color>
     <color name="bg">#FFF</color>
