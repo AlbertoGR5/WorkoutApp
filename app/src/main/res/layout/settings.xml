@@ -41,7 +41,9 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/all"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_profile" />
+            android:bottomLeftRadius="80dp"
+            android:bottomRightRadius="80dp"
+            app:srcCompat="@drawable/logito" />
     </androidx.cardview.widget.CardView>
 
     <View
@@ -122,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/all"
-            app:srcCompat="@drawable/ic_profile" />
+            app:srcCompat="@drawable/logito"/>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView

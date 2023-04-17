@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void settingOnClick(View view) {
-        Intent i = new Intent(context, fragmentLaunchActivity.class);
-        i.putExtra("TAG", "settings");
-        startActivity(i);
+        startActivity(new Intent(this, Account.class));
     }
 
     @Override

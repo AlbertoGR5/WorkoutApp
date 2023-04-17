@@ -4,6 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -16,31 +21,57 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.workout.exercise.R;
-import com.workout.exercise.databinding.SettingsBinding;
+
+import express.express.exercise.util.utilhelper;
 
 public class Account extends AppCompatActivity {
-    private SettingsBinding binding;
-    private FirebaseAuth auth;
+    FirebaseAuth auth;
     private final int fileResult = 1;
+    View view;
+    TextView emailTextView;
+    TextView nameTextView;
+    EditText nameEditText;
+    ImageView profileImageView;
+    ImageView bgProfileImageView;
+    Button updateProfileAppCompatButton;
+    ImageView signOutImageView, backbtn;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings);
 
-        binding = SettingsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        emailTextView = findViewById(R.id.emailTextView);
+        nameTextView = findViewById(R.id.nameTextView);
+        nameEditText = findViewById(R.id.nameEditText);
+        profileImageView = findViewById(R.id.profileImageView);
+        bgProfileImageView = findViewById(R.id.bgProfileImageView);
+        updateProfileAppCompatButton = findViewById(R.id.updateProfileAppCompatButton);
+        signOutImageView = findViewById(R.id.signOutImageView);
+        backbtn = findViewById(R.id.back_btn);
+        setActionbar("Perfil");
+
         auth = FirebaseAuth.getInstance();
 
         updateUI();
 
-        binding.updateProfileAppCompatButton.setOnClickListener(v -> {
-            String name = binding.nameEditText.getText().toString();
+        updateProfileAppCompatButton.setOnClickListener(v -> {
+            String name = nameEditText.getText().toString();
             updateProfile(name);
         });
 
-        binding.profileImageView.setOnClickListener(v -> fileManager());
+        signOutImageView.setOnClickListener(v -> signOut());
+    }
 
-        binding.signOutImageView.setOnClickListener(v -> signOut());
+    private void setActionbar(String title) {
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void updateProfile(String name) {
@@ -108,25 +139,26 @@ public class Account extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
 
         if (user != null) {
-            binding.emailTextView.setText(user.getEmail());
+            emailTextView.setText(user.getEmail());
 
             if (user.getDisplayName() != null) {
-                binding.nameTextView.setText(user.getDisplayName());
-                binding.nameEditText.setText(user.getDisplayName());
+                nameTextView.setText(user.getDisplayName());
+                nameEditText.setText(user.getDisplayName());
             }
 
             Glide.with(this)
                     .load(user.getPhotoUrl())
                     .centerCrop()
-                    .placeholder(R.drawable.ic_profile)
-                    .into(binding.profileImageView);
+                    .placeholder(R.drawable.logito)
+                    .into(profileImageView);
             Glide.with(this)
                     .load(user.getPhotoUrl())
                     .centerCrop()
-                    .placeholder(R.drawable.ic_profile)
-                    .into(binding.bgProfileImageView);
+                    .placeholder(R.drawable.logito)
+                    .into(bgProfileImageView);
         }
     }
+
 
     private void signOut() {
         auth.signOut();

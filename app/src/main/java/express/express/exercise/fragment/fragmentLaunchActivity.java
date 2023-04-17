@@ -28,7 +28,7 @@ public class fragmentLaunchActivity extends AppCompatActivity {
         } else if (activityName.equals("bmi")) {
             f = new bmiFragment();
         } else if (activityName.equals("settings")) {
-            f = new settingFragment();
+
         } else if (activityName.equals("myExercise")) {
             f = new myExerciseFragment();
         }

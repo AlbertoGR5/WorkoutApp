@@ -115,7 +115,7 @@
                     style="@style/main_second_options_txt"
                     android:onClick="settingOnClick"
                     android:tag="settings"
-                    android:text="Configuración" />
+                    android:text="Perfil" />
             </TableRow>
         </TableLayout>
 
