@@ -20,14 +20,13 @@
         android:roundIcon="@drawable/app_icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name="express.express.exercise.activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="express.express.exercise.activity.SplashActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,8 +34,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="express.express.exercise.activity.OnBoarding"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="express.express.exercise.activity.Login"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="express.express.exercise.activity.Register"
             android:screenOrientation="portrait" />

@@ -9,5 +9,9 @@
     <color name="blackBackground">#000</color>
     <color name="textColor">#fff</color>
     <color name="bg">#FFF</color>
+    <color name="grey">#C1C1C1</color>
+    <color name="bg_ob">#FFC107</color>
+
+
 
 </resources>

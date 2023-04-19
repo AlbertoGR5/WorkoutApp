@@ -11,16 +11,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-
-import androidx.core.content.res.ResourcesCompat;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.util.Log;
-import com.workout.exercise.R;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -29,13 +23,17 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import express.express.exercise.fragment.fragmentLaunchActivity;
-import express.express.exercise.sqlite.MyDatabase;
-import express.express.exercise.util.utilhelper;
-import com.google.android.gms.ads.InterstitialAd;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+
+import com.workout.exercise.R;
 
 import java.io.IOException;
 import java.io.InputStream;
+
+import express.express.exercise.sqlite.MyDatabase;
+import express.express.exercise.util.utilhelper;
 
 public class ExerciseActivity extends AppCompatActivity {
 
@@ -80,10 +78,7 @@ public class ExerciseActivity extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (end_btns.getVisibility()==View.VISIBLE){
-                }else {
-                    ShowExitDialog();
-                }
+                ShowExitDialog();
             }
         });
     }
@@ -175,7 +170,7 @@ public class ExerciseActivity extends AppCompatActivity {
             } else {
                 title = "Descanso";
                 bottom_btn.setVisibility(View.VISIBLE);
-                bottom_btn.setText("Omitir");
+                bottom_btn.setText("OMITIR");
             }
             exe = exeList[i];
             imgname = imgList[i];
@@ -337,10 +332,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (end_btns.getVisibility()==View.VISIBLE){
-        }else {
-            ShowExitDialog();
-        }
+        ShowExitDialog();
     }
 
     private void ShowExitDialog() {
@@ -389,6 +381,5 @@ public class ExerciseActivity extends AppCompatActivity {
             }
         });
         ab.show();
-
     }
 }

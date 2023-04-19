@@ -18,5 +18,13 @@
     <string name="text_signup">¿No tienes cuenta?</string>
     <string name="link_signup">Registrarse</string>
     <string name="user_name">User Default</string>
+    <string name="title1">Bienvenido a WorkoutApp</string>
+    <string name="title2">Registro de ejercicio</string>
+    <string name="title3">Calculadora IMC</string>
+    <string name="title4">Ejercicios</string>
+    <string name="description1">Una herramienta para que puedas hacer ejercicio en cualquier lugar y momento</string>
+    <string name="description2">Contamos con un registro de los dias que haces ejercicio</string>
+    <string name="description3">Tendras a la mano una calculadora de tu Indice de Masa Corporal</string>
+    <string name="description4">Te explicamos como realizar los ejercicios</string>
 
 </resources>
